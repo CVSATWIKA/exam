@@ -21,13 +21,7 @@ pipeline{
             }
         }
     
-        stage('Push'){
-            steps{
-                echo 'pushing an image into docker hub'
-                bat 'docker tag myappn:v1 cvsatwika/exam:img1'
-                bat 'docker push cvsatwika/exam:img1'
-            }
-        }
+       
         stage('Deploy to Kubernetes') {
             steps {
                 bat 'kubectl apply -f k8s/'
