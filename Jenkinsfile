@@ -4,13 +4,13 @@ pipeline{
         stage('Build'){
             steps{
                 echo 'Building docker image'
-                bat 'docker build -t MyApp:v1 .'
+                bat 'docker build -t myappn:v1 .'
             }
         }
         stage('Run'){
             steps{
             echo 'Running docker container'
-            bat 'docker run -d -p 5000:5000 MyApp:latest'
+            bat 'docker run -d -p 5000:5000 myappn:latest'
             }
         }
         stage('Push'){
@@ -23,8 +23,8 @@ pipeline{
         stage('Deploy'){
             steps{
                 echo 'deployment using kubernetes'
-                bat 'kubectl create deployment MyAppn --image=MyApp --NodePort=5000'
-                bat 'kubectl expose deployment MyAppn'
+                bat 'kubectl create deployment myappns --image=myappn --NodePort=5000'
+                bat 'kubectl expose deployment myappns'
             }
         }
     
