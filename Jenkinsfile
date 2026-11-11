@@ -20,13 +20,13 @@ pipeline{
                 bat 'docker push cvsatwika/exam:img1'
             }
         }
-        stage('Deploy'){
+        '''stage('Deploy'){
             steps{
                 echo 'deployment using kubernetes'
                 bat 'kubectl create deployment myappns --image=myappn --NodePort=5000'
                 bat 'kubectl expose deployment myappns'
             }
-        }
+        }'''
     
     }
     post{
