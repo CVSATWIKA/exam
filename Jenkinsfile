@@ -7,12 +7,18 @@ pipeline{
                 bat 'docker build -t myappn:v1 .'
             }
         }
+        stage('login'){
+            steps{
+                bat'docker login -u cvsatwika -p cvsatwika@2006'
+            }
+        }
         stage('Run'){
             steps{
             echo 'Running docker container'
             bat 'docker run -d -p 5000:5000 myappn:v1'
             }
         }
+    
         stage('Push'){
             steps{
                 echo 'pushing an image into docker hub'
