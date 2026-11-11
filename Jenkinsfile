@@ -7,11 +7,7 @@ pipeline{
                 bat 'docker build -t myappn:v1 .'
             }
         }
-        stage('login'){
-            steps{
-                bat'docker login -u cvsatwika -p cvsatwika@2006'
-            }
-        }
+       
         stage('Run'){
             steps{
             echo 'Running docker container'
